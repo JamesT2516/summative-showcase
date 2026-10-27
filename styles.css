@@ -1,0 +1,374 @@
+/* 1. Foundations: readable defaults, normal document flow and progressive enhancement. */
+:root {
+    --navy: #0f172a;
+    --blue: #1d4ed8;
+    --blue-dark: #1e40af;
+    --paper: #ffffff;
+    --background: #f8fafc;
+    --muted: #475569;
+    --border: #dbe3ee;
+    --error: #b91c1c;
+    --success: #166534;
+    --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    color: var(--navy);
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+main { flex: 1; }
+img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+h1, h2, h3, .site-name {
+    font-family: "Poppins", Arial, sans-serif;
+    line-height: 1.3;
+}
+h1 { margin: 0 0 16px; color: var(--blue); font-size: clamp(1.75rem, 3.5vw, 2.15rem); }
+h2 { margin: 0 0 12px; font-size: 1.3rem; }
+h3 { margin: 0 0 10px; font-size: 1.1rem; }
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--blue); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+/* A white separation ring keeps the blue focus outline visible on a dark background. */
+:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px var(--paper);
+}
+main:focus { outline: none; box-shadow: none; }
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+.skip-link {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3000;
+    padding: 10px 18px;
+    background: var(--paper);
+    border-radius: 5px;
+    transform: translateY(-180%);
+    font-weight: 700;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* 2. Shared header and real page links (no JavaScript needed for navigation). */
+.site-header {
+    padding: 36px 20px;
+    background: var(--navy);
+    color: var(--paper);
+    text-align: center;
+}
+.header-inner { max-width: 1100px; margin: auto; }
+.site-name { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 2.65rem); font-weight: 700; }
+.site-name a { color: inherit; text-decoration: none; }
+.site-tagline { margin: 0; color: #e2e8f0; }
+nav { margin-top: 28px; }
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+.nav-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    height: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--blue);
+    border-radius: 6px;
+    background: var(--blue);
+    color: var(--paper);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+.nav-tab:hover, .nav-tab:focus-visible, .nav-tab[aria-current="page"] {
+    background: var(--paper);
+    color: var(--blue);
+}
+
+/* 3. Content and reusable visual patterns. */
+.portfolio-main, .contact-page {
+    width: min(90%, 1100px);
+    margin: 35px auto;
+}
+.contact-page { max-width: 820px; }
+.content-card {
+    padding: 25px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.section-gap { margin-top: 28px; }
+.section-heading { margin-bottom: 32px; }
+.section-label {
+    margin: 0 0 8px;
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.section-intro { max-width: 760px; margin: 0; color: var(--muted); font-size: 1.06rem; }
+.about-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.about-copy section { margin-bottom: 26px; }
+.about-copy p { max-width: 68ch; }
+.profile-figure { margin: 0; text-align: center; }
+.profile-figure img { width: 280px; margin: 0 auto; border: 4px solid var(--border); border-radius: 10px; }
+.profile-figure figcaption { max-width: 32ch; margin: 12px auto 0; color: var(--muted); font-size: 0.875rem; }
+.learning-grid, .principles-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
+.learning-card {
+    padding: 23px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    border-radius: 7px;
+    background: var(--background);
+}
+.learning-card p { color: var(--muted); }
+.learning-card ul { padding-left: 22px; margin: 0 0 18px; }
+.learning-card li { margin-bottom: 5px; }
+.card-number { margin: 0 0 12px; color: var(--blue) !important; font-weight: 700; font-size: 1.2rem; }
+.context-note { padding-top: 26px; margin-top: 28px; border-top: 1px solid var(--border); color: var(--muted); }
+.button-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 20px; }
+.project-link, button {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 17px;
+    background: var(--blue);
+    color: var(--paper);
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease;
+}
+.project-link:hover, button:hover { background: var(--navy); border-color: var(--navy); text-decoration: none; }
+button:disabled { cursor: not-allowed; }
+.text-link { display: inline-block; padding: 5px 0; font-weight: 700; }
+
+/* 4. Static project cards with a progressively enhanced JavaScript filter. */
+.project-filter { margin: 0 0 28px; padding: 22px; background: var(--background); border-radius: 7px; border: 1px solid var(--border); }
+.project-filter fieldset, #contact-fields { border: 0; margin: 0; padding: 0; min-width: 0; }
+.project-filter legend { margin: 0 0 12px; padding: 0; font-weight: 700; }
+.filter-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.filter-buttons button { background: var(--paper); color: var(--blue); }
+.filter-buttons button[aria-pressed="true"], .filter-buttons button:hover { background: var(--blue); color: var(--paper); }
+.filter-status { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }
+.project-list { display: grid; gap: 24px; }
+.project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    border-radius: 7px;
+    background: var(--background);
+    scroll-margin-top: 20px;
+}
+.project-copy, .project-media { min-width: 0; }
+.project-media { margin: 0; }
+.project-media img { width: 100%; border: 1px solid var(--border); border-radius: 6px; }
+.project-media figcaption { margin-top: 8px; color: var(--muted); font-size: 0.8rem; }
+.project-copy > p { color: var(--muted); }
+.project-copy > .section-label { color: var(--blue); }
+.tag-list { display: flex; flex-wrap: wrap; gap: 7px; padding: 0; margin: 16px 0; list-style: none; }
+.tag-list li { padding: 3px 9px; background: #e8effc; border-radius: 4px; color: #1e3a8a; font-size: 0.8rem; font-weight: 500; }
+details { margin-top: 14px; }
+summary { cursor: pointer; padding: 9px 0; color: var(--navy); font-weight: 700; }
+details p { margin: 10px 0; color: var(--muted); }
+
+/* 5. Form feedback is text-based as well as colour-based. */
+.contact-intro { padding: 22px; border-left: 4px solid var(--blue); border-radius: 6px; background: var(--background); margin-bottom: 28px; }
+.contact-intro p { color: var(--muted); }
+.form-group { margin-bottom: 22px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 700; }
+.required-label { font-weight: 400; font-size: 0.9rem; color: var(--muted); }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 5px;
+    background: var(--paper);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.5;
+}
+.form-group textarea { min-height: 160px; resize: vertical; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+.field-hint { margin: 6px 0 0; color: var(--muted); font-size: 0.875rem; }
+.error-message { min-height: 1.5em; margin: 5px 0 0; color: var(--error); font-size: 0.875rem; }
+.form-group .input-error { border: 2px solid var(--error); }
+.form-group .input-valid { border-color: var(--success); }
+.submit-button.form-valid { background: var(--success); border-color: var(--success); }
+.submit-button.form-valid:hover { background: #14532d; }
+.form-status { margin-top: 16px; color: var(--muted); font-size: 0.9rem; }
+.notice { margin-bottom: 20px; padding: 15px; border: 2px solid var(--blue); border-radius: 5px; }
+
+/* 6. Native dialog: focus containment is supplied by showModal(), not a visual overlay alone. */
+.confirmation-modal {
+    width: min(540px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-left: 5px solid var(--blue);
+    border-radius: 9px;
+    color: var(--navy);
+    background: var(--paper);
+    box-shadow: 0 15px 40px rgb(15 23 42 / 30%);
+    overflow: auto;
+}
+.confirmation-modal::backdrop { background: rgb(15 23 42 / 75%); }
+.modal-content { position: relative; padding: 32px; }
+.modal-content h2 { margin: 0 34px 12px 0; color: var(--blue); }
+.modal-label { margin: 0 40px 6px 0; color: var(--success); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.modal-close, .popup-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    min-height: 44px;
+    border-color: transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: 28px;
+    line-height: 1;
+}
+.modal-close:hover, .popup-close:hover { border-color: var(--border); background: var(--background); color: var(--navy); }
+.submitted-details { margin: 22px 0; padding: 20px; border: 1px solid var(--border); border-radius: 6px; background: var(--background); }
+.submitted-details dt { font-weight: 700; margin-top: 14px; }
+.submitted-details dt:first-child { margin-top: 0; }
+.submitted-details dd { margin: 3px 0 0; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+body.modal-open { overflow: hidden; }
+
+/* 7. The existing contact invitation, with session-based dismissal and no focus stealing. */
+.contact-popup {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 100;
+    width: min(350px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    overflow: auto;
+    padding: 26px;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid var(--blue);
+    border-radius: 8px;
+    background: var(--paper);
+    box-shadow: 0 10px 30px rgb(15 23 42 / 18%);
+    animation: invitation-in 250ms ease;
+}
+.contact-popup h2 { margin: 0 28px 12px 0; font-size: 1.4rem; }
+.contact-popup > .section-label { max-width: 26ch; padding-right: 22px; }
+.contact-popup p { color: var(--muted); }
+@keyframes invitation-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 8. Shared footer. */
+.site-footer { margin-top: auto; padding: 28px 20px; background: var(--navy); color: var(--paper); text-align: center; }
+.site-footer p { margin-bottom: 5px; }
+.footer-meta { color: #cbd5e1; font-size: 0.875rem; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 24px; margin-top: 12px; }
+.footer-links a { color: var(--paper); display: inline-block; padding: 8px 0; }
+.footer-button { background: transparent; color: var(--paper); border-color: #94a3b8; font-size: 0.9rem; }
+
+/* 9. Tablet and desktop: same content, more space. */
+@media (min-width: 768px) {
+    .site-header { padding: 45px 20px; }
+    nav ul { display: flex; justify-content: center; flex-wrap: wrap; }
+    .nav-tab { padding: 11px 18px; }
+    .content-card { padding: 35px; }
+    .about-layout { grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr); align-items: start; }
+    .learning-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+    .site-header { padding: 48px 20px; }
+    .portfolio-main { margin: 45px auto; }
+    .content-card { padding: 42px; }
+    .principles-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .project-card { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: start; }
+}
+@media (max-width: 480px) {
+    .site-header { padding: 30px 15px; }
+    .nav-tab { padding: 9px 8px; font-size: 0.875rem; }
+    .portfolio-main, .contact-page { width: 92%; margin: 22px auto; }
+    .content-card { padding: 20px; }
+    .learning-card, .project-card { padding: 20px; }
+    .profile-figure img { width: 240px; }
+    .contact-popup { right: 16px; bottom: 16px; }
+    .modal-content { padding: 26px 20px; }
+    .filter-buttons button { flex: 1 1 44%; font-size: 0.9rem; }
+}
+/* Respect motion preferences, including scrolling and the contact invitation. */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+    .site-header { background: none; color: #000; padding: 0 0 18px; }
+    .site-tagline { color: #000; }
+    nav, .skip-link, .contact-popup, .project-filter, .footer-links, dialog { display: none !important; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .portfolio-main, .contact-page { width: 100%; margin: 0; }
+    .content-card { padding: 15px; }
+    .site-footer { background: none; color: #000; }
+    .footer-meta { color: #000; }
+    .project-card { break-inside: avoid; }
+}
+
+/*Portrait Image Hover Effect*/
+.portrait-hover {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Gentle zoom and shadow on hover */
+@media (hover: hover) and (pointer: fine) {
+    .portrait-hover:hover {
+        transform: scale(1.04);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .portrait-hover {
+        transition: none;
+    }
+}

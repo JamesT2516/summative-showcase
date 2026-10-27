@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="James Taljaard&#x27;s final front-end portfolio, showcasing semantic HTML, responsive CSS, JavaScript interactions and coursework in Vue.js.">
+    <title>Front-End Development Portfolio | James Taljaard</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <!-- These optional web fonts have local system-font fallbacks. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <p class="site-name"><a href="index.html">James Taljaard</a></p>
+            <p class="site-tagline">Front-end development. Thoughtful design. Practical solutions.</p>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-tab active" aria-current="page">About Me</a></li>
+                    <li><a href="learning.html" class="nav-tab">Skills &amp; Technologies</a></li>
+                    <li><a href="projects.html" class="nav-tab">My Projects</a></li>
+                    <li><a href="contact.html" class="nav-tab">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="portfolio-main" tabindex="-1">
+        <section class="content-card" aria-labelledby="about-title">
+            <div class="section-heading">
+                <p class="section-label">Final portfolio &middot; Built through practice</p>
+                <h1 id="about-title">About Me</h1>
+                <p class="section-intro">I turn ideas into clear, responsive web experiences. This portfolio brings together my work in HTML, CSS, JavaScript and Vue.js across the Red &amp; Yellow Front-End Web Development course.</p>
+            </div>
+            <div class="about-layout">
+                <div class="about-copy">
+                    <section aria-labelledby="intro-title">
+                        <h2 id="intro-title">Hi, I'm James Taljaard.</h2>
+                        <p>I built this portfolio to show both the work I have produced and the thinking behind it. My approach starts with a clear structure, develops through consistent visual design, and uses interaction where it makes a page easier to use.</p>
+                        <p>Across the course, I worked from semantic HTML and responsive CSS through to JavaScript validation, reusable Vue components and client-side routing. Each project gave me a practical way to connect a new technique to a real interface.</p>
+                    </section>
+                    <section aria-labelledby="practice-title">
+                        <h2 id="practice-title">From structure to interaction</h2>
+                        <p>HTML provides the meaning and structure. CSS Grid, Flexbox and media queries keep the layouts usable across screen sizes. JavaScript adds useful behaviour, including project filtering, clear form feedback and a confirmation dialog.</p>
+                        <p>I pay attention to the details that make these features usable: descriptive links, visible keyboard focus, associated form labels and readable content.</p>
+                    </section>
+                    <section aria-labelledby="showcase-title">
+                        <h2 id="showcase-title">Bringing my skills together</h2>
+                        <p>This final showcase is a multi-page website built with HTML, CSS and JavaScript. The Projects page also links to my earlier Vue.js and Vue Router assignments, showing how the same portfolio developed across different approaches.</p>
+                        <p>The result is a focused personal portfolio: consistent in its design, purposeful in its interactions and straightforward to explore.</p>
+                    </section>
+                    <div class="button-row">
+                        <a href="projects.html" class="project-link">Explore my projects <span aria-hidden="true">&rarr;</span></a>
+                        <a href="learning.html" class="text-link">View my skills</a>
+                    </div>
+                </div>
+                <figure class="profile-figure">
+                    <img src="images/james-taljaard.jpg" alt="James Taljaard" width="600" height="750" class="portrait-hover">
+                    <figcaption>James Taljaard | Front-End Web Development</figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="content-card section-gap" aria-labelledby="approach-title">
+            <div class="section-heading">
+                <p class="section-label">How I build</p>
+                <h2 id="approach-title">Clear foundations. Considered details.</h2>
+            </div>
+            <div class="principles-grid">
+                <article class="learning-card">
+                    <p class="card-number" aria-hidden="true">01</p>
+                    <h3>Structure first</h3>
+                    <p>Meaningful HTML and direct navigation make content easier to understand before any effects are added.</p>
+                </article>
+                <article class="learning-card">
+                    <p class="card-number" aria-hidden="true">02</p>
+                    <h3>Design for people</h3>
+                    <p>Responsive layouts, readable contrast and keyboard access are part of the design, not finishing touches.</p>
+                </article>
+                <article class="learning-card">
+                    <p class="card-number" aria-hidden="true">03</p>
+                    <h3>Test and refine</h3>
+                    <p>I use browser tools, validation checks and real interactions to find problems and improve the result.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 James Taljaard <span aria-hidden="true">&middot;</span> Front-End Development Portfolio</p>
+        <p class="footer-meta">Red &amp; Yellow &middot; Summative Showcase</p>
+        <div class="footer-links">
+            <a href="https://github.com/JamesT2516">GitHub profile</a>
+            <a href="contact.html">Contact &amp; form demo</a>
+            <button type="button" id="open-contact-popup" class="footer-button" aria-controls="contact-popup" aria-expanded="false" hidden>Let's Connect</button>
+        </div>
+    </footer>
+
+    <aside id="contact-popup" class="contact-popup" aria-labelledby="popup-title" hidden>
+        <button type="button" id="close-popup" class="popup-close" aria-label="Close contact invitation">&times;</button>
+        <p class="section-label">Start a conversation</p>
+        <h2 id="popup-title">Let's Connect</h2>
+        <p>Explore my work, ask about a project, or try the interactive contact form demonstration.</p>
+        <a href="contact.html" class="project-link">Visit Contact Me</a>
+    </aside>
+
+</body>
+</html>

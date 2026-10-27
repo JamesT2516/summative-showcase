@@ -1,0 +1,16 @@
+# Local system/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+# Dependencies, temporary backups and private configuration
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+backups/
+# Keep assessor documents and private drafts out of the public repository.
+submission/

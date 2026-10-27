@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the HTML, CSS, JavaScript, Vue.js, accessibility and Git skills demonstrated in James Taljaard&#x27;s front-end coursework.">
+    <title>Skills &amp; Technologies | James Taljaard</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <p class="site-name"><a href="index.html">James Taljaard</a></p>
+            <p class="site-tagline">Front-end development. Thoughtful design. Practical solutions.</p>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-tab">About Me</a></li>
+                    <li><a href="learning.html" class="nav-tab active" aria-current="page">Skills &amp; Technologies</a></li>
+                    <li><a href="projects.html" class="nav-tab">My Projects</a></li>
+                    <li><a href="contact.html" class="nav-tab">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="portfolio-main" tabindex="-1">
+        <section class="content-card" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <p class="section-label">Tools with a purpose</p>
+                <h1 id="skills-title">Skills &amp; Technologies</h1>
+                <p class="section-intro">The techniques behind my coursework and this final showcase. Each area connects to work you can explore, rather than a self-assessed proficiency score.</p>
+            </div>
+            <div class="learning-grid">
+                <article class="learning-card">
+                    <h2>Semantic HTML</h2>
+                    <p>I organise content with meaningful landmarks and a logical heading hierarchy so that each page has a clear purpose.</p>
+                    <ul><li>Header, navigation, main and footer landmarks</li><li>Sections, articles, figures and descriptive links</li><li>Page titles, image descriptions and form labels</li></ul>
+                    <a href="index.html" class="text-link">Explore the page structure</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Responsive CSS</h2>
+                    <p>I use the same visual language across pages, with layouts that adapt rather than rely on a single screen size.</p>
+                    <ul><li>Mobile-first layouts and flexible spacing</li><li>CSS Grid, Flexbox and media queries</li><li>Typography, contrast and interaction states</li></ul>
+                    <a href="projects.html" class="text-link">See the project layouts</a>
+                </article>
+                <article class="learning-card">
+                    <h2>JavaScript &amp; the DOM</h2>
+                    <p>I connect interface behaviour to user actions and keep page content usable without depending on JavaScript for navigation.</p>
+                    <ul><li>DOM selection and event listeners</li><li>Project filters and dismissible invitations</li><li>Safe text updates instead of inserting user HTML</li></ul>
+                    <a href="projects.html#project-filter" class="text-link">Try the project filters</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Forms &amp; user feedback</h2>
+                    <p>I validate input, explain errors next to the relevant field and provide a clear preview without claiming to send a message.</p>
+                    <ul><li>Input and submit event handling</li><li>Validation messages and aria-invalid</li><li>Keyboard-accessible confirmation dialog</li></ul>
+                    <a href="contact.html" class="text-link">Try the contact form</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Vue.js components</h2>
+                    <p>In Module 7, I rebuilt the contact interaction with Vue 3, separating the form and confirmation modal into reusable components.</p>
+                    <ul><li>Reactive data and v-model</li><li>Computed validation and conditional rendering</li><li>Props and component events</li></ul>
+                    <a href="https://github.com/JamesT2516/module-7-assignment" class="text-link">View my Vue.js assignment</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Vue Router</h2>
+                    <p>In Module 8, I created a routed version of the portfolio, with page components and project details driven by a URL parameter.</p>
+                    <ul><li>RouterLink and RouterView</li><li>Dynamic project routes and a 404 fallback</li><li>Lazy-loaded views and production builds</li></ul>
+                    <a href="https://github.com/JamesT2516/module-8-assignment" class="text-link">View my Vue Router assignment</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Accessibility &amp; usability</h2>
+                    <p>I work towards an interface that is understandable, keyboard-friendly and comfortable across different ways of browsing.</p>
+                    <ul><li>Skip navigation and visible focus indicators</li><li>Reduced-motion preferences</li><li>Clear labels, instructions and status messages</li></ul>
+                    <a href="contact.html" class="text-link">Explore accessible form feedback</a>
+                </article>
+                <article class="learning-card">
+                    <h2>Git, testing &amp; documentation</h2>
+                    <p>I keep source files organised and explain how the site works so that the project can be reviewed, maintained and extended.</p>
+                    <ul><li>Descriptive Git commits and public repositories</li><li>Browser Console and responsive checks</li><li>README documentation and deployment checks</li></ul>
+                    <a href="https://github.com/JamesT2516" class="text-link">View my coursework repositories</a>
+                </article>
+            </div>
+            <p class="context-note">This showcase uses plain HTML, CSS and JavaScript. Vue.js and Vue Router are demonstrated in the linked Module 7 and Module 8 repositories.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 James Taljaard <span aria-hidden="true">&middot;</span> Front-End Development Portfolio</p>
+        <p class="footer-meta">Red &amp; Yellow &middot; Summative Showcase</p>
+        <div class="footer-links">
+            <a href="https://github.com/JamesT2516">GitHub profile</a>
+            <a href="contact.html">Contact &amp; form demo</a>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>
